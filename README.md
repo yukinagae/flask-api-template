@@ -26,3 +26,45 @@ direnv: export +PIPENV_ACTIVE +VIRTUAL_ENV -DYLD_LIBRARY_PATH ~PATH
 $ python --version
 Python 3.7.3
 ```
+
+## Start server
+
+```bash
+# MEMO: export and `flask run` seem to be unnecessary for flask-restful api
+# export FLASK_APP=main.py
+# export FLASK_DEBUG=1
+# flask run
+python main.py
+```
+
+## Play with tasks
+
+List tasks
+
+```bash
+curl http://127.0.0.1:5000/todos
+```
+
+Get a task
+
+```bash
+curl http://127.0.0.1:5000/todos/todo3
+```
+
+Add a task
+
+```bash
+curl http://127.0.0.1:5000/todos -d "task=something new" -X POST -v
+```
+
+Update a task
+
+```bash
+curl http://127.0.0.1:5000/todos/todo3 -d "task=something different" -X PUT -v
+```
+
+Delete a task
+
+```bash
+curl http://127.0.0.1:5000/todos/todo2 -X DELETE -v
+```
